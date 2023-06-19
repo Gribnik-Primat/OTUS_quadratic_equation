@@ -17,7 +17,7 @@ jobs:
       uses: actions/checkout@v2
 
     - name: Set up CMake
-      uses: cmake/actions/setup-cmake@v1
+      uses: actions/setup-cmake@v1
       with:
         cmake_version: '3.21'
 
@@ -29,7 +29,13 @@ jobs:
         sudo cmake --install build/googletest
 
     - name: Build
-      run: cmake -S . -B build && cmake --build build
+      run: |
+        mkdir build
+        cd build
+        cmake ..
+        cmake --build .
 
     - name: Run tests
-      run: cd build && ctest -V
+      run: |
+        cd build
+        ctest -V
