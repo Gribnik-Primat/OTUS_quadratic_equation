@@ -17,9 +17,6 @@ set(TEST_SOURCES
 # Include directories
 include_directories(include)
 
-# Add Google Test subdirectory
-add_subdirectory(googletest)
-
 # Create executable for tests
 add_executable(QuadraticEquationSolverTest ${TEST_SOURCES} ${SOURCES})
 target_link_libraries(QuadraticEquationSolverTest gtest gmock)
